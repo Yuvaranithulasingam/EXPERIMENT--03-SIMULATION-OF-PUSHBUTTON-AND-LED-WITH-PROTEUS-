@@ -158,6 +158,7 @@ void assert_failed(uint8_t *file, uint32_t line)
 
 }
 #endif
+```
 ## Output screen shots of proteus  :
  
  ![arm board glowing](https://user-images.githubusercontent.com/121418522/234003918-a8cb3cd2-ff61-4718-9bff-66551b0312db.png)
