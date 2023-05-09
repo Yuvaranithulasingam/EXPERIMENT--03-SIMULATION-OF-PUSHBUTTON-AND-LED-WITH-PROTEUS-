@@ -74,7 +74,9 @@ https://engineeringxpert.com/wp-content/uploads/2022/04/26.png
 ## STM 32 CUBE PROGRAM :
 ```
 #include "main.h"
-
+#include "stdio.h"
+#include "stdbool.h"
+bool pushbutton ;
 void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
 
@@ -87,10 +89,19 @@ MX_GPIO_Init();
 
 while (1)
   {
-	  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_RESET);
-	  HAL_Delay(500);
-	  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_SET);
-	  HAL_Delay(500);
+      pushbutton = HAL_GPIO_ReadPin(GPIOA,GPIO_PIN_4);
+      if(pushbutton == 0)
+	 	  {
+	           HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_SET);
+	   	   	   HAL_Delay(100);
+	   	   	   HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_RESET);
+	   	   	   HAL_Delay(100);
+
+	 	  }
+   else
+	   	  {
+	          HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_RESET);
+	          HAL_Delay(500); 
   }
   
 }
